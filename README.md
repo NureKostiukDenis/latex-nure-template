@@ -39,8 +39,10 @@ sudo apt install -y \
   texlive-fonts-recommended \
   latexmk
 ```
+
 > [!TIP]
 > Якщо ви не хочете підбирати окремі пакети, можна встановити повний набір TeX Live:
+>
 > ```bash
 > sudo apt install -y texlive-full latexmk
 > ```
@@ -53,25 +55,29 @@ sudo dnf install -y \
   texlive-collection-langcyrillic \
   latexmk
 ```
-> *(Або точкове встановлення: `sudo dnf install -y texlive-luatex texlive-latex texlive-extsizes texlive-titlesec texlive-caption texlive-cleveref texlive-collection-langcyrillic texlive-collection-fontsrecommended latexmk`)*
+
+> _(Або точкове встановлення: `sudo dnf install -y texlive-luatex texlive-latex texlive-extsizes texlive-titlesec texlive-caption texlive-cleveref texlive-collection-langcyrillic texlive-collection-fontsrecommended latexmk`)_
 
 ### 🔹 Windows
 
 Для роботи на Windows доступні два популярні дистрибутиви:
 
 #### Варіант 1: MiKTeX (Найпростіший спосіб)
+
 1. Завантажте інсталятор з офіційного сайту [miktex.org](https://miktex.org/download) або через консоль `winget`:
    ```powershell
    winget install MiKTeX.MiKTeX
    ```
-2. Під час інсталяції для налаштування *«Install missing packages on-the-fly»* обов'язково оберіть **«Yes»** — тоді MiKTeX сам завантажить будь-який відсутній пакунок при першій компіляції.
+2. Під час інсталяції для налаштування _«Install missing packages on-the-fly»_ обов'язково оберіть **«Yes»** — тоді MiKTeX сам завантажить будь-який відсутній пакунок при першій компіляції.
 3. Для роботи `latexmk` у Windows також знадобиться інтерпретатор Perl:
    ```powershell
    winget install StrawberryPerl.StrawberryPerl
    ```
 
 #### Варіант 2: TeX Live для Windows
+
 Встановіть офіційний дистрибутив TeX Live через [онлайн-інсталятор TUG](https://www.tug.org/texlive/windows.html) або через термінал:
+
 ```powershell
 winget install TUG.TeXLive
 # або через Chocolatey:
@@ -186,3 +192,17 @@ latexmk -c
 | `imgs/`                                | Папка для графічних матеріалів (PNG, JPG, PDF)        |
 | [`.latexmkrc`](.latexmkrc)             | Конфігурація збірки для `latexmk`                     |
 | [`.vscode/`](.vscode/)                 | Налаштування рецептів складання для VS Code           |
+
+---
+
+## 🗺️ Roadmap
+
+- [x] Адаптація рушія LuaLaTeX та підтримка локальних векторних шрифтів FreeSerif (14pt).
+- [x] Модуль генерації титульної сторінки з гнучкими метаданими (`title.tex`).
+- [x] Базове форматування заголовків розділів і підрозділів за ДСТУ 3008:2015 (`titlesec`).
+- [x] Автоматизація збірки через `.latexmkrc` та рецепти для VS Code (LaTeX Workshop).
+- [ ] Бібліографія (BibTeX / BibLaTeX): Фіналізація та уніфікація стилю оформлення джерел за ДСТУ 8302:2015.
+- [ ] Таблиці: Покращення підтримки багатосторінкових таблиць (`longtable`), переносів та нумерації за стандартом.
+- [ ] Списки: Налаштування маркованих (тире) та нумерованих списків відповідно до вимог ДСТУ щодо відступів та пунктуації.
+- [ ] Зміст: Точне доведення точок-заповнювачів (`\dotfill`), шрифтів і відступів у `titletoc`, обтікання номеру розділу текстом.
+- [ ] Тестування на Windows: Повна перевірка збірки через MiKTeX та TeX Live у середовищі Windows.
