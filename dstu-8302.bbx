@@ -1,0 +1,271 @@
+\ProvidesFile{dstu-8302.bbx}
+  [2026/04/18 v0.2 DSTU 8302:2015 bibliography style for biblatex]
+
+% ============================================================
+%  Базовий стиль: numeric (нумерація [1] у квадратних дужках).
+% ============================================================
+\RequireBibliographyStyle{numeric}
+
+\ExecuteBibliographyOptions{
+  giveninits       = true,
+  useprefix        = true,
+  sorting          = none,
+  maxnames         = 3,
+  minnames         = 1,
+  maxbibnames      = 3,
+  minbibnames      = 1,
+  maxcitenames     = 1,
+  mincitenames     = 1,
+  doi              = true,
+  isbn             = false,
+  eprint           = false,
+  pagetracker      = false,
+  date             = year,    % публікація — лише рік
+  urldate          = short,   % дата звернення — ДД.ММ.РРРР
+}
+
+% ============================================================
+%  Форматування імен: «Прізвище І. Б.»
+% ============================================================
+% Порядок «прізвище, ім'я» (біблатексівська схема family-given)
+\DeclareNameAlias{sortname}{family-given}
+\DeclareNameAlias{default}{family-given}
+
+% прибрати кому після прізвища: «Прізвище І. Б.» замість «Прізвище, І. Б.»
+\renewcommand*{\revsdnamepunct}{}
+% між співавторами — кома і пробіл, без «та» перед останнім
+\renewcommand*{\multinamedelim}{\addcomma\space}
+\renewcommand*{\finalnamedelim}{\multinamedelim}
+\renewcommand*{\revsdnamedelim}{}
+% ініціали через нерозривний пробіл: «І. Б.»
+\renewcommand*{\bibinitdelim}{\addnbspace}
+
+% ============================================================
+%  Пунктуація між елементами запису — крапка + пробіл
+% ============================================================
+\renewcommand*{\newunitpunct}{\addperiod\space}
+\renewcommand*{\finentrypunct}{\addperiod}
+\renewcommand*{\labelnamepunct}{\addperiod\space}
+
+% Підзаголовок через двокрапку з пробілами: «Назва : підзаголовок»
+\renewcommand*{\subtitlepunct}{\addspace\addcolon\space}
+
+% Тире між сторінками — em-dash
+\protected\def\bibrangedash{\textemdash}
+\renewcommand*{\bibrangessep}{\addcomma\space}
+
+% Розділовий знак перед сторінками в журналі (після дати) — крапка+пробіл
+\renewcommand*{\bibpagespunct}{\addperiod\space}
+
+% ============================================================
+%  Форматування полів (без курсиву, без лапок)
+% ============================================================
+\DeclareFieldFormat*{title}{#1}
+\DeclareFieldFormat*{booktitle}{#1}
+\DeclareFieldFormat*{journaltitle}{#1}
+\DeclareFieldFormat*{shortjournal}{#1}
+\DeclareFieldFormat*{maintitle}{#1}
+\DeclareFieldFormat*{issuetitle}{#1}
+\DeclareFieldFormat*{series}{#1}
+
+% DOI: «DOI: 10.xxxx»
+\DeclareFieldFormat{doi}{%
+  DOI\addcolon\space\nolinkurl{#1}}
+
+% URL: «URL: https://...»
+\DeclareFieldFormat{url}{%
+  URL\addcolon\space\url{#1}}
+
+% Дата звернення: «(дата звернення: ДД.ММ.РРРР)» — повна форма
+\DeclareFieldFormat{urldate}{%
+  \mkbibparens{%
+    дата\addnbspace звернення\addcolon\space#1}}
+
+% Сторінки: «С. 12—23»
+\DeclareFieldFormat{pages}{\mkpageprefix[bookpagination]{#1}}
+
+% Загальна к-ть сторінок книги: «245 с.»
+\DeclareFieldFormat{pagetotal}{#1\addnbspace\bibstring{pagetotal}}
+
+% Том: «Т. 21» — для всіх типів
+\DeclareFieldFormat{volume}{%
+  \bibstring{jourvol}\addnbspace#1}
+\DeclareFieldFormat[article,periodical]{volume}{%
+  \bibstring{jourvol}\addnbspace#1}
+
+% Номер: «№ 5»
+\DeclareFieldFormat{number}{%
+  \bibstring{number}\addnbspace#1}
+\DeclareFieldFormat[article,periodical]{number}{%
+  \bibstring{number}\addnbspace#1}
+
+% Видання: «2-ге вид.»
+\DeclareFieldFormat{edition}{%
+  #1\addnbspace\bibstring{edition}}
+
+% Серія — прозою
+\DeclareFieldFormat{series}{#1}
+
+% ============================================================
+%  Локалізація: перевизначення рядків з ukrainian.lbx під ДСТУ
+% ============================================================
+% У .bbx/.cbx/.tex синтаксис ОДИН аргумент (на відміну від .lbx)
+\DefineBibliographyStrings{ukrainian}{%
+  % ДСТУ використовує «С.» (велика) перед діапазоном сторінок у статтях
+  page        = {С\adddot},
+  pages       = {С\adddot},
+  % Для загальної кількості сторінок у книзі — мала «с.»
+  pagetotal   = {с\adddot},
+  pagetotals  = {с\adddot},
+  % «URL:» замість «режим доступу»
+  urlfrom     = {URL},
+  % Повна форма «дата звернення»
+  urlseen     = {дата\addabbrvspace звернення},
+  % «та ін.» після 3-го автора
+  andothers   = {та\addabbrvspace ін\adddot},
+}
+
+% ============================================================
+%  Макрос видавця: «Місце : Видавець, Рік»
+% ============================================================
+\renewbibmacro*{publisher+location+date}{%
+  \printlist{location}%
+  \iflistundef{publisher}
+    {\setunit*{\addcomma\space}}
+    {\setunit*{\addspace\addcolon\space}}%
+  \printlist{publisher}%
+  \setunit*{\addcomma\space}%
+  \usebibmacro{date}%
+  \newunit}
+
+\renewbibmacro*{location+publisher+date}{%
+  \printlist{location}%
+  \iflistundef{publisher}
+    {\setunit*{\addcomma\space}}
+    {\setunit*{\addspace\addcolon\space}}%
+  \printlist{publisher}%
+  \setunit*{\addcomma\space}%
+  \usebibmacro{date}%
+  \newunit}
+
+% ============================================================
+%  Макрос журналу: «Journal. Рік. Т. 21, № 1. С. 121—130»
+%  ДСТУ: спочатку журнал, потім рік, потім том/номер, потім сторінки.
+% ============================================================
+\renewbibmacro*{journal+issuetitle}{%
+  \usebibmacro{journal}%
+  \newunit
+  \iffieldundef{series}
+    {}
+    {\printfield{series}%
+     \newunit}%
+  \usebibmacro{issue+date}%
+  \newunit
+  \usebibmacro{volume+number+eid}%
+  \setunit{\addcolon\space}%
+  \usebibmacro{issue}%
+  \newunit}
+
+\renewbibmacro*{volume+number+eid}{%
+  \printfield{volume}%
+  \iffieldundef{number}
+    {}
+    {\setunit*{\addcomma\space}%
+     \printfield{number}}%
+  \setunit{\addcomma\space}%
+  \printfield{eid}}
+
+\renewbibmacro*{issue+date}{%
+  \iffieldundef{issue}
+    {\usebibmacro{date}}
+    {\printfield{issue}%
+     \setunit*{\addcomma\space}%
+     \usebibmacro{date}}%
+  \newunit}
+
+% ============================================================
+%  Прибрати «В:» / «In:» перед назвами збірників та журналів
+% ============================================================
+\renewbibmacro*{in:}{}
+
+% ============================================================
+%  Драйвер article: без «В:», без ISSN
+% ============================================================
+\DeclareBibliographyDriver{article}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/translator+others}%
+  \setunit{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \newunit
+  \printlist{language}%
+  \newunit\newblock
+  \usebibmacro{byauthor}%
+  \newunit\newblock
+  \usebibmacro{bytranslator+others}%
+  \newunit\newblock
+  \printfield{version}%
+  \newunit\newblock
+  \usebibmacro{journal+issuetitle}%
+  \newunit
+  \usebibmacro{byeditor+others}%
+  \newunit
+  \usebibmacro{note+pages}%
+  \newunit\newblock
+  \iftoggle{bbx:isbn}
+    {\printfield{issn}}
+    {}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \newunit\newblock
+  \usebibmacro{addendum+pubstate}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
+% ============================================================
+%  Драйвер online: «Title. Site. URL: ... (дата звернення)»
+% ============================================================
+\DeclareBibliographyDriver{online}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor+others/translator+others}%
+  \setunit{\labelnamepunct}\newblock
+  \usebibmacro{title}%
+  \newunit\newblock
+  \usebibmacro{byauthor}%
+  \newunit\newblock
+  \usebibmacro{byeditor+others}%
+  \newunit\newblock
+  \printfield{version}%
+  \newunit\newblock
+  \printlist{organization}%
+  \newunit\newblock
+  \usebibmacro{date}%
+  \newunit\newblock
+  \iftoggle{bbx:url}
+    {\usebibmacro{url+urldate}}
+    {}%
+  \newunit\newblock
+  \usebibmacro{addendum+pubstate}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \usebibmacro{finentry}}
+
+% ============================================================
+%  URL + дата звернення
+% ============================================================
+\renewbibmacro*{url+urldate}{%
+  \printfield{url}%
+  \iffieldundef{urlyear}
+    {}
+    {\setunit*{\addspace}%
+     \usebibmacro{urldate}}}
+
+\endinput
