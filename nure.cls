@@ -15,6 +15,14 @@
     BoldItalicFont = FreeSerifBoldItalic,
     Ligatures = TeX
 ]
+\setmonofont{LiberationMono}[
+    Path = fonts/,
+    Extension = .ttf,
+    UprightFont = LiberationMono-Regular,
+    BoldFont = LiberationMono-Bold,
+    ItalicFont = LiberationMono-Italic,
+    BoldItalicFont = LiberationMono-BoldItalic
+]
 
 \RequirePackage[english,ukrainian]{babel}
 \RequirePackage[a4paper, top=2cm, bottom=2cm, left=2.5cm, right=1cm]{geometry}
@@ -55,6 +63,34 @@
 \crefname{figure}{рис.}{рис.}
 \Crefname{figure}{Рис.}{Рис.}
 
+\counterwithin{table}{chapter}
+\renewcommand{\thetable}{\thechapter.\arabic{table}}
+\crefname{table}{табл.}{табл.}
+\Crefname{table}{Таблиця}{Таблиці}
+
+% ЛІСТИНГИ КОДУ
+\RequirePackage{listings}
+\crefname{lstlisting}{ліст.}{ліст.}
+\Crefname{lstlisting}{Лістинг}{Лістинги}
+\lstset{
+    basicstyle=\ttfamily\footnotesize,
+    keepspaces=true,
+    columns=flexible,
+    breaklines=true,
+    breakatwhitespace=true,
+    numbers=left,
+    numberstyle=\color{black},
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{green!50!black}\itshape,
+    stringstyle=\color{orange!80!black},
+    showstringspaces=false,
+    tabsize=4,
+    captionpos=b,
+    belowskip=0pt,
+    xleftmargin=5ex,
+    framexleftmargin=5ex
+}
+
 % КОЛОНТИТУЛИ
 \RequirePackage{fancyhdr}
 \fancyhf{}
@@ -68,6 +104,23 @@
 \setlength{\parskip}{0pt}
 % Інтервал — полуторний
 \linespread{1.3}
+
+% ПЕРЕЛІКИ (СПИСКИ)
+\RequirePackage{enumitem}
+\setlist[enumerate]{
+    itemsep=0pt,
+    parsep=0pt,
+    topsep=0pt,
+    partopsep=0pt,
+    before=\linespread{1.3}\selectfont
+}
+\setlist[itemize]{
+    itemsep=0pt,
+    parsep=0pt,
+    topsep=0pt,
+    partopsep=0pt,
+    before=\linespread{1.3}\selectfont
+}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Глибина нумерації
@@ -209,13 +262,13 @@ justification=justified,
 labelsep=endash,
 labelformat=tablecap,
 belowskip=18pt,
-aboveskip=3pt
+aboveskip=0pt
 }
 
 \renewenvironment{table}[4]{
 	\begingroup\centering
-	\setlength{\LTpre}{-14pt}
-	\setlength{\LTpost}{14pt}
+	\setlength{\LTpre}{12pt}
+	\setlength{\LTpost}{12pt}
 	\setlength{\LTcapwidth}{0pt}
 	\begin{longtable}{#1}
 		\kill

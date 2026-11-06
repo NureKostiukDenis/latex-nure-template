@@ -1,60 +1,130 @@
-\clearpage
 \phantomsection
-\chapter{Процесс виконання}
-\label{chapter:process}
+\chapter{Проектування та експериментальні дослідження}
+\label{chapter:development-and-analysis}
 
-\section{Принципи роботи}
-\subsection{Структура проекту}
+У цьому розділі наведено практичні приклади оформлення звітної документації згідно з вимогами ДСТУ~3008:2015. Розглянуто ієрархію заголовків різних рівнів, варіанти масштабування та позиціонування графічних матеріалів, оформлення лістингів вихідного коду, а також створення багатосторінкових таблиць із автоматичним переносом шапки.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed iaculis justo, at bibendum lectus. Phasellus semper, quam a sagittis ultricies, lacus quam hendrerit diam, in consequat eros est eget nisi. Proin libero purus, accumsan at fringilla non, suscipit id felis. Nullam sodales tempus dui, nec tincidunt justo. Ut sit amet mi est. Cras vel aliquet eros. Vestibulum convallis neque at sollicitudin suscipit. In commodo rutrum tortor vel accumsan. Sed ut accumsan risus. Aenean finibus finibus nisi, sit amet volutpat orci congue eu. Nullam sollicitudin dignissim nisi ut bibendum. Mauris auctor luctus diam, vel dignissim justo lobortis in.
+\section{Ієрархія заголовків та робота з графікою}
+\label{sec:headings-and-graphics}
 
-\begin{figure}[H]
-    \centering
-    \paddedimage[width=0.5\textwidth]{cat-1-wide.png}
-    \caption{Nunc interdum ex in leo accumsan finibus}
-    \label{fig:cat-1}
-\end{figure}
+Текст кожного підрозділу повинен починатися з абзацного відступу розміром 5 символів (5ex). Згідно з вимогами стандарту, між заголовками однакового або суміжних рівнів витримується нормативний інтервал без додаткових порожніх рядків.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed iaculis justo, at bibendum lectus. Phasellus semper, quam a sagittis ultricies, lacus quam hendrerit diam, in consequat eros est eget nisi. Proin libero purus, accumsan at fringilla non, suscipit id felis. Nullam sodales tempus dui, nec tincidunt justo. Ut sit amet mi est. Cras vel aliquet eros. Vestibulum convallis neque at sollicitudin suscipit. In commodo rutrum tortor vel accumsan. Sed ut accumsan risus. Aenean finibus finibus nisi, sit amet volutpat orci congue eu. Nullam sollicitudin dignissim nisi ut bibendum. Mauris auctor luctus diam, vel dignissim justo lobortis in.
+\subsection{Варіанти масштабування зображень}
+\label{subsec:image-scaling}
 
-Див. \cref{fig:cat-1}
+Всі рисунки мають бути вирівняні по центру сторінки та супроводжуватися підрисунковим підписом виду «Рисунок X.Y~--~Назва рисунка». Для вставки графіки рекомендується використовувати макрос \texttt{\textbackslash paddedimage}, який забезпечує нормативні відступи зверху та знизу.
+
+Нижче продемонстровано великомасштабне зображення (масштаб 0.85), яке підходить для деталізованих блок-схем, діаграм класів або загальних планів архітектури.
 
 \begin{figure}[H]
     \centering
-    \paddedimage[width=0.5\textwidth]{cat-2-square.jpg}
-    \caption{Lorem ipsum dolor}
-    \label{fig:cat-2}
+    \paddedimage[width=0.85\textwidth]{cat-1-wide.png}
+    \caption{Загальна архітектура інформаційної взаємодії системи (великий масштаб)}
+    \label{fig:arch-wide}
 \end{figure}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed iaculis justo, at bibendum lectus. Phasellus semper, quam a sagittis ultricies, lacus quam hendrerit diam, in consequat eros est eget nisi. Proin libero purus, accumsan at fringilla non, suscipit id felis. Nullam sodales tempus dui, nec tincidunt justo. Ut sit amet mi est. Cras vel aliquet eros. Vestibulum convallis neque at sollicitudin suscipit. In commodo rutrum tortor vel accumsan. Sed ut accumsan risus. Aenean finibus finibus nisi, sit amet volutpat orci congue eu. Nullam sollicitudin dignissim nisi ut bibendum. Mauris auctor luctus diam, vel dignissim justo lobortis in.
+Для компактних схем, графіків функцій чи окремих елементів інтерфейсу доцільно обирати середній масштаб (0.52), як показано на рис.~\ref{fig:component-medium}.
 
-Pellentesque interdum sit amet lacus at imperdiet. Nunc interdum ex in leo accumsan finibus. Suspendisse vulputate id odio vel auctor. Donec maximus facilisis nulla, quis pellentesque magna pretium bibendum. Sed elementum ex eget iaculis eleifend. Nullam finibus arcu sem, eget luctus eros cursus non. Sed eget lacinia leo.
+\begin{figure}[H]
+    \centering
+    \paddedimage[width=0.52\textwidth]{cat-2-square.jpg}
+    \caption{Структурна схема модуля обробки запитів (середній масштаб)}
+    \label{fig:component-medium}
+\end{figure}
 
-Phasellus scelerisque suscipit elementum. Sed egestas, purus vel ultricies commodo, neque nibh mollis elit, non rhoncus dui ex at tellus. Praesent vitae gravida dolor. Maecenas quis eros vel lacus faucibus congue at eu tellus. Donec elit ex, blandit eget commodo nec, pellentesque ac mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris ac lobortis nunc. Proin auctor in arcu vel dictum. Mauris leo lacus, vehicula ut sapien nec, scelerisque tincidunt tellus. In tristique convallis nibh quis lacinia. Nunc venenatis enim nec libero viverra mollis.
+У випадках, коли необхідно проілюструвати допоміжний графічний елемент, піктограму чи компактний стан системи, використовується малий масштаб (0.30).
 
-Vestibulum ante ipsum primis in faucibus orci Див. \cref{fig:cat-1} у звіті. luctus et ultrices posuere cubilia curae; Suspendisse convallis ipsum non posuere aliquam. Phasellus in faucibus erat. Donec cursus commodo velit, sed tempus erat lobortis et. Etiam at scelerisque urna, vel pulvinar ex. Aliquam ultrices orci ac hendrerit fermentum. Praesent iaculis sagittis porta. Duis id ipsum aliquam, semper lorem luctus, pulvinar justo. Pellentesque neque ligula, volutpat dignissim dui et, fermentum gravida turpis. Maecenas facilisis odio vitae nulla feugiat semper. Curabitur placerat ut quam nec suscipit. Nulla at tempor risus. Maecenas aliquam arcu sed ligula euismod pellentesque. Phasellus vitae sapien mi. Curabitur dolor eros, dapibus sed consectetur in, maximus et nunc. 
+\begin{figure}[H]
+    \centering
+    \paddedimage[width=0.30\textwidth]{cat-2-square.jpg}
+    \caption{Піктограма статусу обчислювального потоку (малий масштаб)}
+    \label{fig:icon-small}
+\end{figure}
 
+\subsection{Способи посилання на графічні матеріали}
+\label{subsec:image-refs}
 
-\subsection{Структура проекту}
+У звітах згідно з ДСТУ допускається кілька варіантів посилань на ілюстрації в тексті:
+\begin{itemize}[wide]
+    \item Пряме посилання через команду \texttt{\textbackslash ref}: «як наведено на рис.~\ref{fig:arch-wide}».
+    \item Автоматичне посилання через пакет \texttt{cleveref} (\texttt{\textbackslash cref}): «згідно з \cref{fig:component-medium}».
+    \item Посилання на початку речення з великої літери (\texttt{\textbackslash Cref}): «\Cref{fig:arch-wide} демонструє ключові компоненти».
+    \item Посилання в дужках: «схема ініціалізації середовища (див. рис.~\ref{fig:icon-small})».
+    \item Посилання на діапазон рисунків (\texttt{\textbackslash crefrange}): «динаміка змін відображена на \crefrange{fig:arch-wide}{fig:icon-small}».
+\end{itemize}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed iaculis justo, at bibendum lectus. Phasellus semper, quam a sagittis ultricies, lacus quam hendrerit diam, in consequat eros est eget nisi. Proin libero purus, accumsan at fringilla non, suscipit id felis. Nullam sodales tempus dui, nec tincidunt justo. Ut sit amet mi est. Cras vel aliquet eros. Vestibulum convallis neque at sollicitudin suscipit. In commodo rutrum tortor vel accumsan. Sed ut accumsan risus. Aenean finibus finibus nisi, sit amet volutpat orci congue eu. Nullam sollicitudin dignissim nisi ut bibendum. Mauris auctor luctus diam, vel dignissim justo lobortis in.
+\section{Вставка та оформлення вихідного коду}
+\label{sec:code-listings}
 
-Pellentesque interdum sit amet lacus at imperdiet. Nunc interdum ex in leo accumsan finibus. Suspendisse vulputate id odio vel auctor. Donec maximus facilisis nulla, quis pellentesque magna pretium bibendum. Sed elementum ex eget iaculis eleifend. Nullam finibus arcu sem, eget luctus eros cursus non. Sed eget lacinia leo.
+Лістинги програмного коду оформлюються за допомогою пакету \texttt{listings}. Заголовок лістингу розташовується знизу або зверху відповідно до вимог кафедри, кожна строка нумерується, а ключові слова мови програмування виділяються напівжирним шрифтом або кольором.
 
-Phasellus scelerisque suscipit elementum. Sed egestas, purus vel ultricies commodo, neque nibh mollis elit, non rhoncus dui ex at tellus. Praesent vitae gravida dolor. Maecenas quis eros vel lacus faucibus congue at eu tellus. Donec elit ex, blandit eget commodo nec, pellentesque ac mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris ac lobortis nunc. Proin auctor in arcu vel dictum. Mauris leo lacus, vehicula ut sapien nec, scelerisque tincidunt tellus. In tristique convallis nibh quis lacinia. Nunc venenatis enim nec libero viverra mollis.
+\begin{lstlisting}[label={lst:quicksort}]
+def quick_sort(arr: list) -> list:
+    """Рекурсивна реалізація алгоритму швидкого сортування."""
+    if len(arr) <= 1:
+        return arr
+    pivot = arr[len(arr) // 2]
+    left = [x for x in arr if x < pivot]
+    middle = [x for x in arr if x == pivot]
+    right = [x for x in arr if x > pivot]
+    return quick_sort(left) + middle + quick_sort(right)
+\end{lstlisting}
 
-Vestibulum ante ipsum primis in faucibus orci Див. \cref{fig:cat-1} у звіті. luctus et ultrices posuere cubilia curae; Suspendisse convallis ipsum non posuere aliquam. Phasellus in faucibus erat. Donec cursus commodo velit, sed tempus erat lobortis et. Etiam at scelerisque urna, vel pulvinar ex. Aliquam ultrices orci ac hendrerit fermentum. Praesent iaculis sagittis porta. Duis id ipsum aliquam, semper lorem luctus, pulvinar justo. Pellentesque neque ligula, volutpat dignissim dui et, fermentum gravida turpis. Maecenas facilisis odio vitae nulla feugiat semper. Curabitur placerat ut quam nec suscipit. Nulla at tempor risus. Maecenas aliquam arcu sed ligula euismod pellentesque. Phasellus vitae sapien mi. Curabitur dolor eros, dapibus sed consectetur in, maximus et nunc. 
+Посилання на лістинг у тексті здійснюється стандартним чином: «у лістингу~\ref{lst:quicksort} наведено реалізацію алгоритму» або «відповідно до \cref{lst:quicksort} базовим випадком рекурсії є одноелементний список».
 
+\section{Багатосторінкові таблиці}
+\label{sec:tables}
 
+\subsection{Оформлення таблиць згідно з ДСТУ}
+\label{subsec:tables-dstu}
 
-\subsubsection{orem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed iaculis justo, at bibendum lectus.}
+Таблиці у шаблоні реалізовано на базі середовища \texttt{longtable}. Команда створення таблиці приймає чотири обов'язкові аргументи:
+\begin{enumerate}[wide]
+    \item Специфікація вирівнювання колонок (наприклад, \texttt{\{|c|p\{7.5cm\}|c|c|\}}).
+    \item Назва таблиці (наприклад, \texttt{Результати експерименту}).
+    \item Мітка для посилань (наприклад, \texttt{tab:benchmarks}).
+    \item Шапка таблиці (перший рядок заголовків стовпців із горизонтальними лініями).
+\end{enumerate}
 
+\subsubsection{Приклад таблиці, що переноситься на наступну сторінку}
+\label{subsubsec:multipage-table}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sed iaculis justo, at bibendum lectus. Phasellus semper, quam a sagittis ultricies, lacus quam hendrerit diam, in consequat eros est eget nisi. Proin libero purus, accumsan at fringilla non, suscipit id felis. Nullam sodales tempus dui, nec tincidunt justo. Ut sit amet mi est. Cras vel aliquet eros. Vestibulum convallis neque at sollicitudin suscipit. In commodo rutrum tortor vel accumsan. Sed ut accumsan risus. Aenean finibus finibus nisi, sit amet volutpat orci congue eu. Nullam sollicitudin dignissim nisi ut bibendum. Mauris auctor luctus diam, vel dignissim justo lobortis in.
+Якщо таблиця не вміщується на одній сторінці, шаблон автоматично розриває її та додає на наступній сторінці напис «Продовження таблиці X.Y» разом із повторенням шапки таблиці, що повністю відповідає нормам ДСТУ~3008:2015.
 
-Pellentesque interdum sit amet lacus at imperdiet. Nunc interdum ex in leo accumsan finibus. Suspendisse vulputate id odio vel auctor. Donec maximus facilisis nulla, quis pellentesque magna pretium bibendum. Sed elementum ex eget iaculis eleifend. Nullam finibus arcu sem, eget luctus eros cursus non. Sed eget lacinia leo.
+Зведені показники порівняльного аналізу алгоритмів наведено в табл.~\ref{tab:benchmarks}. Зверніть увагу: \cref{tab:benchmarks} займає більше однієї сторінки, демонструючи автоматичний механізм розриву.
 
-Phasellus scelerisque suscipit elementum. Sed egestas, purus vel ultricies commodo, neque nibh mollis elit, non rhoncus dui ex at tellus. Praesent vitae gravida dolor. Maecenas quis eros vel lacus faucibus congue at eu tellus. Donec elit ex, blandit eget commodo nec, pellentesque ac mauris. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris ac lobortis nunc. Proin auctor in arcu vel dictum. Mauris leo lacus, vehicula ut sapien nec, scelerisque tincidunt tellus. In tristique convallis nibh quis lacinia. Nunc venenatis enim nec libero viverra mollis.
+\begin{table}{|c|p{7.5cm}|c|c|}
+{Результати комплексного порівняльного аналізу параметрів системи}
+{tab:benchmarks}
+{\hline № & Найменування тестового параметра & Метод А & Метод Б \\ \hline}
+1 & Час первинної ініціалізації обчислювального середовища (мс) & 14.2 & 9.8 \\ \hline
+2 & Базовий обсяг оперативної пам'яті для кешування (МБ) & 64.0 & 48.5 \\ \hline
+3 & Пропускна здатність вхідного потоку транзакцій (тис./с) & 1250 & 1480 \\ \hline
+4 & Затримка обробки критичних повідомлень під час піку (мс) & 3.2 & 2.1 \\ \hline
+5 & Рівень навантаження на обчислювальні ядра процесора (\%) & 78.4 & 62.1 \\ \hline
+6 & Середнє питоме енергоспоживання вузла кластера (Вт) & 46.2 & 38.0 \\ \hline
+7 & Часова складність обробки у найкращому сценарії & $O(n)$ & $O(1)$ \\ \hline
+8 & Часова складність обробки в середньому сценарії & $O(n \log n)$ & $O(n)$ \\ \hline
+9 & Часова складність обробки у найгіршому сценарії & $O(n^2)$ & $O(n \log n)$ \\ \hline
+10 & Просторова складність алгоритмічної моделі & $O(n)$ & $O(1)$ \\ \hline
+11 & Стабільність збереження порядку пар еквівалентних ключів & Так & Ні \\ \hline
+12 & Рівень горизонтального масштабування обчислень & Високий & Помірний \\ \hline
+13 & Чутливість структури даних до фрагментації пам'яті & Низька & Середня \\ \hline
+14 & Частота влучань у дворівневий кеш процесора L1/L2 (\%) & 94.1 & 89.6 \\ \hline
+15 & Швидкість деградації продуктивності при апаратних збоях & 3.8\% & 6.5\% \\ \hline
+16 & Кількість операцій порівняння на контрольний блок (тис.) & 8.45 & 6.20 \\ \hline
+17 & Кількість операцій перестановки на блок (тис.) & 2.10 & 1.85 \\ \hline
+18 & Час обробки масиву розмірністю $N = 10^4$ (мс) & 4.2 & 3.1 \\ \hline
+19 & Час обробки масиву розмірністю $N = 10^5$ (мс) & 48.6 & 35.8 \\ \hline
+20 & Час обробки масиву розмірністю $N = 10^6$ (мс) & 580.2 & 418.4 \\ \hline
+21 & Час обробки попередньо впорядкованого масиву (мс) & 12.1 & 8.2 \\ \hline
+22 & Час обробки масиву, впорядкованого у зворотному напрямку (мс) & 710.4 & 538.1 \\ \hline
+23 & Вплив типу даних на загальну тривалість виконання & Низький & Помірний \\ \hline
+24 & Надійність збереження стану транзакцій при відмові (\%) & 99.99 & 99.95 \\ \hline
+25 & Загальний приріст продуктивності після оптимізації & +34.5\% & +41.8\% \\ \hline
+\end{table}
 
-Vestibulum ante ipsum primis in faucibus orci Див. \cref{fig:cat-1} у звіті. luctus et ultrices posuere cubilia curae; Suspendisse convallis ipsum non posuere aliquam. Phasellus in faucibus erat. Donec cursus commodo velit, sed tempus erat lobortis et. Etiam at scelerisque urna, vel pulvinar ex. Aliquam ultrices orci ac hendrerit fermentum. Praesent iaculis sagittis porta. Duis id ipsum aliquam, semper lorem luctus, pulvinar justo. Pellentesque neque ligula, volutpat dignissim dui et, fermentum gravida turpis. Maecenas facilisis odio vitae nulla feugiat semper. Curabitur placerat ut quam nec suscipit. Nulla at tempor risus. Maecenas aliquam arcu sed ligula euismod pellentesque. Phasellus vitae sapien mi. Curabitur dolor eros, dapibus sed consectetur in, maximus et nunc. 
+\subsubsection{Аналіз отриманих табличних даних}
+\label{subsubsec:table-analysis}
 
+Аналіз даних, наведених у табл.~\ref{tab:benchmarks}, свідчить про те, що Метод Б забезпечує перевагу у швидкодії на великих обсягах вибірки ($N \ge 10^5$), проте Метод А демонструє стабільність порядку елементів та вищу стійкість до фрагментації пам'яті.
