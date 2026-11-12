@@ -45,13 +45,13 @@
 \label{subsec:image-refs}
 
 У звітах згідно з ДСТУ допускається кілька варіантів посилань на ілюстрації в тексті:
-\begin{itemize}[wide]
+\begin{dashlist}[wide,beginpenalty=10000]
     \item Пряме посилання через команду \texttt{\textbackslash ref}: «як наведено на рис.~\ref{fig:arch-wide}».
     \item Автоматичне посилання через пакет \texttt{cleveref} (\texttt{\textbackslash cref}): «згідно з \cref{fig:component-medium}».
     \item Посилання на початку речення з великої літери (\texttt{\textbackslash Cref}): «\Cref{fig:arch-wide} демонструє ключові компоненти».
     \item Посилання в дужках: «схема ініціалізації середовища (див. рис.~\ref{fig:icon-small})».
     \item Посилання на діапазон рисунків (\texttt{\textbackslash crefrange}): «динаміка змін відображена на \crefrange{fig:arch-wide}{fig:icon-small}».
-\end{itemize}
+\end{dashlist}
 
 \section{Вставка та оформлення вихідного коду}
 \label{sec:code-listings}
@@ -79,7 +79,7 @@ def quick_sort(arr: list) -> list:
 \label{subsec:tables-dstu}
 
 Таблиці у шаблоні реалізовано на базі середовища \texttt{longtable}. Команда створення таблиці приймає чотири обов'язкові аргументи:
-\begin{enumerate}[wide]
+\begin{enumerate}[wide,beginpenalty=10000]
     \item Специфікація вирівнювання колонок (наприклад, \texttt{\{|c|p\{7.5cm\}|c|c|\}}).
     \item Назва таблиці (наприклад, \texttt{Результати експерименту}).
     \item Мітка для посилань (наприклад, \texttt{tab:benchmarks}).

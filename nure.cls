@@ -123,6 +123,18 @@
     before=\linespread{1.3}\selectfont
 }
 
+
+\newlist{dashlist}{itemize}{3}
+\setlist[dashlist]{
+    itemsep=0pt,
+    parsep=0pt,
+    topsep=0pt,
+    partopsep=0pt,
+    before=\linespread{1.3}\selectfont
+}
+\setlist[dashlist,1]{label=--}
+\setlist[dashlist,2]{label=\textbullet}
+
 % Глибина нумерації
 \setcounter{secnumdepth}{3}
 % Глибина змісту
