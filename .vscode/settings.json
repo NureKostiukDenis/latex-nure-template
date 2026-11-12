@@ -1,5 +1,6 @@
 {
   "latex-workshop.latex.recipe.default": "latexmk (lualatex)",
+  "editor.wordWrap": "on",
   "latex-workshop.latex.tools": [
     {
       "name": "latexmk",
@@ -26,9 +27,7 @@
     {
       "name": "bibtex",
       "command": "bibtex",
-      "args": [
-        "%DOCFILE%"
-      ]
+      "args": ["%DOCFILE%"]
     }
   ],
   "latex-workshop.latex.recipes": [
