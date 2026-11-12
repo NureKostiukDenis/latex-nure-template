@@ -3,8 +3,6 @@
 
 \LoadClass[14pt,oneside]{extreport}
 
-
-
 \RequirePackage{fontspec}
 \setmainfont{FreeSerif}[
     Path = fonts/,
@@ -28,6 +26,8 @@
 \RequirePackage[a4paper, top=2cm, bottom=2cm, left=2.5cm, right=1cm]{geometry}
 \RequirePackage{indentfirst}
 \RequirePackage[hidelinks]{hyperref}
+\AtBeginDocument{\urlstyle{same}}
+
 \RequirePackage{xcolor}
 \RequirePackage{lipsum}
 \RequirePackage{caption}
@@ -286,7 +286,7 @@ aboveskip=0pt
 	\end{longtable}
 	\endgroup
 }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{xkeyval}
 \RequirePackage{ifthen}
@@ -313,7 +313,7 @@ aboveskip=0pt
 \define@cmdkey[CW]{TitlePage}{SupervisorSex}[male]{}
 \define@cmdkey[CW]{TitlePage}{SupervisorName}[ПІБ]{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \newcommand{\MakeTitlePage}[1]{
 	\setkeys[CW]{TitlePage}{#1}
 	\thispagestyle{empty}
