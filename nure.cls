@@ -34,6 +34,8 @@
 \RequirePackage{graphicx}
 \RequirePackage{float}
 \RequirePackage{cleveref}
+\RequirePackage[none]{hyphenat}
+\sloppy
 
 % Бібліографія (BibTeX з ugost2008 під вимоги ДСТУ 8302:2015 без довгих тире .—)
 \AtBeginDocument{%
@@ -97,8 +99,7 @@
 \fancyhead[R]{\thepage}
 \renewcommand{\headrulewidth}{0pt}
 \pagestyle{fancy}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % Абзацний відступ
 \setlength{\parindent}{5ex}
 \setlength{\parskip}{0pt}
@@ -121,8 +122,7 @@
     partopsep=0pt,
     before=\linespread{1.3}\selectfont
 }
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % Глибина нумерації
 \setcounter{secnumdepth}{3}
 % Глибина змісту
@@ -324,7 +324,7 @@ aboveskip=0pt
 		\par\noindent\cmdCW@TitlePage@FacultyName
 		\par\noindent\cmdCW@TitlePage@DepartmentName
 		\vfill
-		\par\noindent\MakeUppercase{\cmdCW@TitlePage@WorkTitle}
+		\par\noindent{\cmdCW@TitlePage@WorkTitle}
 		\par\noindent\cmdCW@TitlePage@WorkType
 		\par\noindent\cmdCW@TitlePage@Subject
 	\end{center}
