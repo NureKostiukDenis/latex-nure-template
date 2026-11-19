@@ -1,5 +1,9 @@
 \documentclass{nure}
 
+\usepackage[style=numeric,sorting=none,backend=biber]{biblatex}
+\addbibresource{bibliography.bib}
+\AtEveryBibitem{\clearlist{language}}
+
 \includeonly{
 title,
 body,
@@ -14,7 +18,7 @@ conclusion,
 \tableofcontents
 \include{introduction}
 \include{body}
-\include{conclusion}
-% \include{bibliography}
+% \include{conclusion}
+\include{bibliography}
 
 \end{document}

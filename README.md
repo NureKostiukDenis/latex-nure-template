@@ -20,10 +20,12 @@ sudo pacman -S \
   texlive-latex \
   texlive-latexrecommended \
   texlive-latexextra \
+  texlive-bibtexextra \
   texlive-luatex \
   texlive-langcyrillic \
   texlive-fontsrecommended \
-  texlive-pictures
+  texlive-pictures \
+  biber
 ```
 
 ### 🔹 Debian / Ubuntu / Linux Mint (`apt`)
@@ -34,9 +36,11 @@ sudo apt install -y \
   texlive-latex-base \
   texlive-latex-recommended \
   texlive-latex-extra \
+  texlive-bibtex-extra \
   texlive-luatex \
   texlive-lang-cyrillic \
   texlive-fonts-recommended \
+  biber \
   latexmk
 ```
 
@@ -44,7 +48,7 @@ sudo apt install -y \
 > Якщо ви не хочете підбирати окремі пакети, можна встановити повний набір TeX Live:
 >
 > ```bash
-> sudo apt install -y texlive-full latexmk
+> sudo apt install -y texlive-full biber latexmk
 > ```
 
 ### 🔹 Fedora (`dnf`)
@@ -53,10 +57,12 @@ sudo apt install -y \
 sudo dnf install -y \
   texlive-scheme-medium \
   texlive-collection-langcyrillic \
+  texlive-biblatex \
+  biber \
   latexmk
 ```
 
-> _(Або точкове встановлення: `sudo dnf install -y texlive-luatex texlive-latex texlive-extsizes texlive-titlesec texlive-caption texlive-cleveref texlive-collection-langcyrillic texlive-collection-fontsrecommended latexmk`)_
+> _(Або точкове встановлення: `sudo dnf install -y texlive-luatex texlive-latex texlive-extsizes texlive-titlesec texlive-caption texlive-cleveref texlive-biblatex texlive-collection-langcyrillic texlive-collection-fontsrecommended biber latexmk`)_
 
 ### 🔹 Windows
 

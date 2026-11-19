@@ -3,6 +3,10 @@
 \addcontentsline{toc}{chapter}{Перелік посилань}
 
 \renewcommand{\bibname}{ПЕРЕЛІК ПОСИЛАНЬ}
+\defbibenvironment{bibliography}
+  {\begin{enumerate}[wide]}
+  {\end{enumerate}}
+  {\item}
+
 \nocite{*}
-\bibliographystyle{ugost2008}
-\bibliography{bibliography}
+\printbibliography[title={Перелік посилань}]
