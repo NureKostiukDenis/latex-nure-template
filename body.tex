@@ -47,7 +47,6 @@
 У звітах згідно з ДСТУ допускається кілька варіантів посилань на ілюстрації в тексті:
 \begin{dashlist}[wide,beginpenalty=10000]
     \item Пряме посилання через команду \texttt{\textbackslash ref}: «як наведено на рис.~\ref{fig:arch-wide}».
-    \item Автоматичне посилання через пакет \texttt{cleveref} (\texttt{\textbackslash cref}): «згідно з \cref{fig:component-medium}».
     \item Посилання на початку речення з великої літери (\texttt{\textbackslash Cref}): «\Cref{fig:arch-wide} демонструє ключові компоненти».
     \item Посилання в дужках: «схема ініціалізації середовища (див. рис.~\ref{fig:icon-small})».
     \item Посилання на діапазон рисунків (\texttt{\textbackslash crefrange}): «динаміка змін відображена на \crefrange{fig:arch-wide}{fig:icon-small}».
@@ -56,9 +55,9 @@
 \section{Вставка та оформлення вихідного коду}
 \label{sec:code-listings}
 
-Лістинги програмного коду оформлюються за допомогою пакету \texttt{listings}. Заголовок лістингу розташовується знизу або зверху відповідно до вимог кафедри, кожна строка нумерується, а ключові слова мови програмування виділяються напівжирним шрифтом або кольором.
+Лістинги програмного коду оформлюються за допомогою пакету \texttt{listings}.
 
-\begin{lstlisting}[label={lst:quicksort}]
+\begin{lstlisting}[label={lst:quicksort},basicstyle=\ttfamily\small]
 def quick_sort(arr: list) -> list:
     """Рекурсивна реалізація алгоритму швидкого сортування."""
     if len(arr) <= 1:
@@ -69,8 +68,6 @@ def quick_sort(arr: list) -> list:
     right = [x for x in arr if x > pivot]
     return quick_sort(left) + middle + quick_sort(right)
 \end{lstlisting}
-
-Посилання на лістинг у тексті здійснюється стандартним чином: «у лістингу~\ref{lst:quicksort} наведено реалізацію алгоритму» або «відповідно до \cref{lst:quicksort} базовим випадком рекурсії є одноелементний список».
 
 \section{Багатосторінкові таблиці}
 \label{sec:tables}

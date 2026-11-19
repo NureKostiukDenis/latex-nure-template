@@ -19,7 +19,8 @@
     UprightFont = LiberationMono-Regular,
     BoldFont = LiberationMono-Bold,
     ItalicFont = LiberationMono-Italic,
-    BoldItalicFont = LiberationMono-BoldItalic
+    BoldItalicFont = LiberationMono-BoldItalic,
+    Scale = 0.785
 ]
 
 \RequirePackage[english,ukrainian]{babel}
@@ -80,7 +81,7 @@
     columns=flexible,
     breaklines=true,
     breakatwhitespace=true,
-    numbers=left,
+    % numbers=left,
     numberstyle=\color{black},
     keywordstyle=\color{blue}\bfseries,
     commentstyle=\color{green!50!black}\itshape,
@@ -92,6 +93,7 @@
     xleftmargin=5ex,
     framexleftmargin=5ex
 }
+\AddToHook{env/lstlisting/begin}{\linespread{1.0}\selectfont}
 
 % КОЛОНТИТУЛИ
 \RequirePackage{fancyhdr}
