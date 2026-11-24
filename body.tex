@@ -136,3 +136,25 @@ def quick_sort(arr: list) -> list:
     \item Спочатку нумеруються джерела, на які є посилання в документі -- строго в тій послідовності, у якій вони вперше згадані в тексті (наприклад, джерело~\cite{nure:software} отримує номер~1, хоча в \texttt{bibliography.bib} воно записане другим, а~\cite{Coffee2026CaffeineDriven} стає другим).
     \item Після всіх процитованих джерел у кінець списку додаються невикористані джерела з \texttt{bibliography.bib} (завдяки команді \texttt{\textbackslash nocite\{*\}} у файлі \texttt{bibliography.tex}). Якщо потрібно виводити виключно процитовані джерела, достатньо прибрати або закоментувати \texttt{\textbackslash nocite\{*\}}.
 \end{dashlist}
+
+\subsection{Перемикання стилю оформлення джерел (ДСТУ 8302:2015 та Chicago)}
+\label{subsec:bib-styles}
+
+Для зміни стандарту бібліографічних посилань достатньо замінити рядок підключення \texttt{biblatex} у преамбулі файлу \texttt{main.tex}.
+
+\begin{lstlisting}[label={lst:bib-styles}]
+% Варіант 1: ДСТУ 8302:2015 (використовує dstu-8302.bbx та dstu-8302.cbx)
+\usepackage[style=dstu-8302,sorting=none,backend=biber]{biblatex}
+
+% Варіант 2: Chicago Author-Date -- цитування виду (Автор 2026)
+\usepackage[authordate,backend=biber]{biblatex-chicago}
+
+% Варіант 3: Chicago Notes & Bibliography -- посилання у виносках
+\usepackage[notes,backend=biber]{biblatex-chicago}
+\end{lstlisting}
+
+Під час перемикання стилю слід враховувати два моменти:
+\begin{dashlist}[wide,beginpenalty=10000]
+    \item Очищення кешу збірки -- перед повторною компіляцією необхідно видалити старі допоміжні файли (\texttt{main.bbl}, \texttt{main.bcf}, \texttt{main.aux}) або виконати команду \texttt{latexmk -C}, інакше залишки попереднього стилю можуть спричинити помилку.
+    \item Нумерація списку -- у файлі \texttt{bibliography.tex} перевизначено середовище бібліографії через \texttt{enumerate}, що відповідає вимогам ДСТУ~8302:2015; для класичного ненумерованого списку в стилі Chicago блок \texttt{\textbackslash defbibenvironment\{bibliography\}} варто закоментувати.
+\end{dashlist}
