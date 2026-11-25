@@ -34,6 +34,7 @@
 \RequirePackage{caption}
 \RequirePackage{graphicx}
 \RequirePackage{float}
+\RequirePackage{mathtools}
 \RequirePackage{cleveref}
 \RequirePackage[none]{hyphenat}
 \sloppy
@@ -183,12 +184,12 @@
     
 \titleformat{\section}[block]
     {\normalsize}
-    {\thesection}
+    {\hspace*{5ex}\thesection}
     {1em}
     {}[\global\@nure@inheadingfalse]
 
 \titlespacing*{\section}
-    {\parindent}
+    {0pt}
     {12pt}
     {12pt}
 
@@ -203,12 +204,12 @@
 
 \titleformat{\subsection}[block]
     {\normalsize}
-    {\thesubsection}
+    {\hspace*{5ex}\thesubsection}
     {1em}
     {}[\global\@nure@inheadingfalse]
 
 \titlespacing*{\subsection}
-    {\parindent}
+    {0pt}
     {12pt}
     {12pt}
 
@@ -223,12 +224,12 @@
 
 \titleformat{\subsubsection}[block]
     {\normalsize}
-    {\thesubsubsection}
+    {\hspace*{5ex}\thesubsubsection}
     {1em}
     {}[\global\@nure@inheadingfalse]
 
 \titlespacing*{\subsubsection}
-    {\parindent}
+    {0pt}
     {12pt}
     {12pt}
 
